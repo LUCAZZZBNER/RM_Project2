@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "cmake",
+        "type": "shell",
+        "command": "cmake",
+        "args": [
+          ".."
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}/build"
+        },
+        
+      },
+      {
+        "label": "make",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "command": "make",
+        "args": [
+          "-C", "build"
+        ],
+        "dependsOn": ["cmake"]  // 确保 cmake 任务先运行
+      }
+    ]
+  }
